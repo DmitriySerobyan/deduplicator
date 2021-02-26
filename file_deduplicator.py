@@ -4,10 +4,10 @@ import re
 
 def main():
     source_dirs = [
-        "D:\PicturesRaw",
-        "D:\PicturesUnsorted",
+        r"D:\PicturesRaw",
+        r"D:\PicturesUnsorted",
     ]
-    dir_duplicate = "D:\PicturesDuplicate"
+    dir_duplicate = r"D:\PicturesDuplicate"
 
     all_files = dict()
     for source_dir in source_dirs:
@@ -19,7 +19,7 @@ def main():
         for file_name in os.listdir(source_dir):
             if is_duplicate(all_files, source_dir, file_name):
                 duplicate_file_path = os.path.join(source_dir, file_name)
-                print('duplicate file: ' + duplicate_file_path)
+                print("duplicate file: {duplicate_file_path}")
                 move_duplicate_to = os.path.join(dir_duplicate, file_name)
                 os.rename(duplicate_file_path, move_duplicate_to)
 
