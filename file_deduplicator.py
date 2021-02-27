@@ -12,10 +12,7 @@ class FileDeduplicator:
         for source_dir in self.source_dirs:
             for file_name in os.listdir(source_dir):
                 file_path = os.path.join(source_dir, file_name)
-                if self.is_duplicate(file_name, file_path):
-                    self.move_to_duplicate_dir(file_name, file_path)
-                else:
-                    self.all_files[file_name] = file_path
+                self.all_files[file_name] = file_path
 
         for source_dir in self.source_dirs:
             for file_name in os.listdir(source_dir):
